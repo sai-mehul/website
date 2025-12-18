@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Mehul Harish - Aspiring Data Analyst</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .contact {
+            font-size: 1.1em;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .contact a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: opacity 0.3s;
+        }
+
+        .header .contact a:hover {
+            opacity: 0.8;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: slideIn 0.6s ease-out forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
+        .section:nth-child(5) { animation-delay: 1s; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        .summary {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .education-item, .experience-item, .project-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .education-item:hover, .experience-item:hover, .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-size: 1.3em;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .item-subtitle {
+            font-size: 1.1em;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .item-date {
+            color: #888;
+            font-style: italic;
+        }
+
+        .item-location {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .course-category {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .course-category strong {
+            color: #764ba2;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .bullet-points {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-points li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .bullet-points li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 1.5em;
+            line-height: 1;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: scale(1.05);
+        }
+
+        .skill-category h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .skill-category p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .item-header {
+                flex-direction: column;
+            }
+
+            .item-date {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Sai Mehul Harish</h1>
+            <div class="contact">
+                <a href="tel:+917406095372">+91 7406095372</a> |
+                <a href="mailto:saimehulharishrao@gmail.com">saimehulharishrao@gmail.com</a> |
+                <a href="https://github.com/sai-mehul" target="_blank">github.com/sai-mehul</a> |
+                Pune, Maharashtra
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>Summary</h2>
+                <p class="summary">
+                    Aspiring analyst passionate about leveraging large-scale data analysis to influence product strategy and deliver value to billions of users. Currently pursuing a post-graduate degree in Applied Statistics at the Symbiosis Statistical Institute, with a strong foundation in statistical application. Eager to apply my technical skills in data querying, statistical analysis, and hypothesis testing to solve complex product challenges. Seeking to contribute to obtain and deliver actionable insights.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>Education</h2>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Symbiosis Statistical Institute</div>
+                            <div class="item-location">Pune, Maharashtra</div>
+                        </div>
+                        <div class="item-date">Expected 08/2026</div>
+                    </div>
+                    <div class="item-subtitle">Applied Statistics</div>
+                    
+                    <div class="course-category">
+                        <strong>Machine Learning & AI:</strong>
+                        Statistical Machine Learning, Statistical Learning and Data Mining, Computer Intensive Statistical Methods
+                    </div>
+                    
+                    <div class="course-category">
+                        <strong>Statistical Modeling & Inference:</strong>
+                        Statistical Inference, Linear Models, Multivariate Statistical Analysis, Stochastic Processes, Time Series Analysis
+                    </div>
+                    
+                    <div class="course-category">
+                        <strong>Experimental Design & Analysis:</strong>
+                        Design of Experiments, Probability Distributions, Sampling Theory, Research Methodology
+                    </div>
+                    
+                    <div class="course-category">
+                        <strong>Industrial & Financial Applications:</strong>
+                        Industrial Statistics (Elective) with focus on Statistical Quality Control (SQC) and Financial Stochastic Processes
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Narsee Monjee Institute of Management Studies</div>
+                            <div class="item-location">Navi-Mumbai, Maharashtra</div>
+                        </div>
+                        <div class="item-date">08/2024</div>
+                    </div>
+                    <div class="item-subtitle">Data Science</div>
+                    
+                    <div class="course-category">
+                        <strong>Statistical & Mathematical Foundations:</strong>
+                        Descriptive & Inferential Statistics, Probability Models, Sampling Distributions, Multivariable Calculus, Linear Algebra, Optimization
+                    </div>
+                    
+                    <div class="course-category">
+                        <strong>Machine Learning & Modeling:</strong>
+                        Machine Learning I & II, Regression Analysis, Multivariate Analysis, Time Series & Forecasting, Deep Learning
+                    </div>
+                    
+                    <div class="course-category">
+                        <strong>Data Engineering & Computing:</strong>
+                        Data Management, Big Data Analytics, Data Wrangling with Python, R, SQL
+                    </div>
+                    
+                    <div class="course-category">
+                        <strong>Leadership:</strong>
+                        Vice President, Analytics Club - Revamped the club's focus by introducing practical sessions and project-based learning, leading a team to manage data-centric events for 50+ students and increasing overall engagement.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Motilal Oswal AMC</div>
+                            <div class="item-location">Mumbai, Maharashtra</div>
+                        </div>
+                        <div class="item-date">06/2025 - 08/2025</div>
+                    </div>
+                    <div class="item-subtitle">Product Analyst Intern</div>
+                    
+                    <ul class="bullet-points">
+                        <li>Uncovered a significant concentration risk, with Index (27%) and MidCap (26%) funds comprising 53% of total AUM which concluded into a diversification schemes to mitigate the general investor risk.</li>
+                        <li>Engineered a dual-layer segmentation model, creating 4 RFM clusters and 4 behavioral personas via Multiple Correspondence Analysis (MCA) to enable targeted retention playbooks for each of the segments.</li>
+                        <li>Diagnosed a high-loyalty, low-engagement investor base (0.88 stickiness score), pinpointing a latent growth opportunity and designing data-driven nudges for activation.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Skills</h2>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Softwares</h3>
+                        <p>Python (Pandas, Scikit-learn, NumPy), R (dplyr), SQL, Excel</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Analytical Methods</h3>
+                        <p>Statistical Inference, A/B Testing (Design of Experiments), Regression Analysis, Time Series Analysis, Machine Learning</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Domains</h3>
+                        <p>Product Analytics, Data Mining, Statistical Quality Control</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Projects</h2>
+                
+                <div class="project-item">
+                    <div class="item-title">Bond Pricing</div>
+                    <p>Engineered a financial model to price a long-term portfolio of Indian bonds, applying specialized formulas for zero-coupon bonds and implementing a discounted cash flow (DCF) approach for coupon-paying bonds using Python (Pandas, NumPy).</p>
+                </div>
+
+                <div class="project-item">
+                    <div class="item-title">Black Scholes Model</div>
+                    <p>Created a project which focuses on calculating option prices, analyzing how those prices change when key parameters vary, and visualizing the resulting price dynamics. It also includes the computation of option Greeks such as Delta, Gamma, and Theta to quantify sensitivities and better understand the risk profile of the options.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
